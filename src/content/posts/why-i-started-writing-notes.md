@@ -2,7 +2,7 @@
 title: "為什麼我開始寫學習筆記？三個月後的改變"
 description: "從不愛寫字到每天寫筆記，分享我養成寫筆記習慣後的三個意想不到的改變。"
 publishDate: 2026-01-28
-category: life
+category: 生活
 tags: [學習方法, 個人成長, 寫作習慣, 筆記術]
 image: "https://images.pexels.com/photos/733856/pexels-photo-733856.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 imageAlt: "寫筆記學習"
