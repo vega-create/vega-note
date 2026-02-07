@@ -1,0 +1,66 @@
+---
+import { siteConfig } from '../site.config';
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-cream-300/60">
+  <div class="max-w-4xl mx-auto px-5 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="font-display font-bold text-xl text-warm-900 hover:text-accent-peach transition-colors flex items-center gap-2">
+      <span class="text-2xl">📝</span>
+      <span>Vega Note</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {siteConfig.nav.map(item => (
+        <a
+          href={item.href}
+          class:list={[
+            'text-sm font-medium transition-colors relative',
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+              ? 'text-accent-peach'
+              : 'text-warm-600 hover:text-warm-900',
+          ]}
+        >
+          {item.text}
+          {(currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))) && (
+            <span class="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent-peach rounded-full"></span>
+          )}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-warm-600 hover:text-warm-900" aria-label="選單">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-t border-cream-300/60 pb-4">
+    {siteConfig.nav.map(item => (
+      <a
+        href={item.href}
+        class:list={[
+          'block px-5 py-3 text-sm font-medium transition-colors',
+          currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+            ? 'text-accent-peach bg-cream-200/50'
+            : 'text-warm-600 hover:text-warm-900 hover:bg-cream-100',
+        ]}
+      >
+        {item.text}
+      </a>
+    ))}
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

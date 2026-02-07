@@ -1,0 +1,16 @@
+---
+import { siteConfig } from '../site.config';
+interface Props { items: Array<{ name: string; href: string }> }
+const { items } = Astro.props;
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: item.name,
+    item: new URL(item.href, siteConfig.url).toString(),
+  })),
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

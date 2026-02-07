@@ -1,0 +1,22 @@
+---
+import { siteConfig } from '../site.config';
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-warm-50 border-t border-cream-300 mt-20">
+  <div class="max-w-4xl mx-auto px-5 py-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-warm-500 text-sm">
+        <span class="text-lg">📝</span>
+        <span>© {year} {siteConfig.name} — 每天進步一點點 🌱</span>
+      </div>
+      <div class="flex items-center gap-4">
+        {siteConfig.nav.map(item => (
+          <a href={item.href} class="text-warm-400 hover:text-accent-peach text-sm transition-colors">
+            {item.text}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

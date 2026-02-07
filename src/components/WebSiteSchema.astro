@@ -1,0 +1,12 @@
+---
+import { siteConfig } from '../site.config';
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  inLanguage: siteConfig.lang,
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

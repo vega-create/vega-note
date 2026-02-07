@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-warm-800 font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-warm-900;
+  }
+
+  /* Markdown article styles */
+  .prose {
+    @apply text-warm-700 leading-relaxed;
+  }
+
+  .prose h2 {
+    @apply text-xl font-display font-bold text-warm-900 mt-10 mb-4 pb-2 border-b border-cream-300;
+  }
+
+  .prose h3 {
+    @apply text-lg font-display font-semibold text-warm-800 mt-8 mb-3;
+  }
+
+  .prose p {
+    @apply mb-4 text-base leading-7;
+  }
+
+  .prose a {
+    @apply text-accent-peach hover:text-warm-600 underline underline-offset-2 transition-colors;
+  }
+
+  .prose ul, .prose ol {
+    @apply mb-4 pl-6;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  .prose ul li {
+    @apply list-disc;
+  }
+
+  .prose ol li {
+    @apply list-decimal;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-accent-peach bg-cream-200/50 px-5 py-3 my-6 rounded-r-notebook italic text-warm-600;
+  }
+
+  .prose code {
+    @apply font-mono text-sm bg-cream-300/60 px-1.5 py-0.5 rounded text-warm-800;
+  }
+
+  .prose pre {
+    @apply bg-warm-800 text-cream-100 p-5 rounded-notebook overflow-x-auto my-6 text-sm leading-6;
+  }
+
+  .prose pre code {
+    @apply bg-transparent px-0 py-0 text-cream-100;
+  }
+
+  .prose img {
+    @apply rounded-notebook shadow-card my-6;
+  }
+
+  .prose hr {
+    @apply border-cream-300 my-8;
+  }
+
+  .prose strong {
+    @apply text-warm-900 font-semibold;
+  }
+
+  .prose table {
+    @apply w-full my-6 text-sm;
+  }
+
+  .prose th {
+    @apply text-left font-semibold text-warm-900 px-4 py-2 bg-cream-200 border-b border-cream-300;
+  }
+
+  .prose td {
+    @apply px-4 py-2 border-b border-cream-200;
+  }
+}
+
+/* Page transition */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.animate-fade-in-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.animate-fade-in-delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+/* Category badge colors */
+.cat-ai { @apply bg-purple-100 text-purple-700; }
+.cat-marketing { @apply bg-orange-100 text-orange-700; }
+.cat-dev { @apply bg-teal-100 text-teal-700; }
+.cat-life { @apply bg-green-100 text-green-700; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FFF9EE; }
+::-webkit-scrollbar-thumb { background: #D4BFA8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C4A882; }

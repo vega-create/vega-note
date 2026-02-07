@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../site.config';
+---
+
+<BaseLayout title="關於我" description="了解 Vega — AI、行銷、開發的學習之路">
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-cream-200 via-cream-100 to-cream-300 border-b border-cream-300">
+    <!-- Decorative pattern -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-32 h-32 border border-warm-400/30 rounded-full"></div>
+      <div class="absolute top-20 right-20 w-48 h-48 border border-warm-400/20 rounded-full"></div>
+      <div class="absolute bottom-10 left-1/3 w-24 h-24 border border-warm-400/20 rounded-full"></div>
+    </div>
+    <div class="relative max-w-3xl mx-auto px-5 py-20 text-center animate-fade-in">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-white/60 backdrop-blur-sm rounded-full mb-6 border border-cream-400 shadow-card">
+        <span class="text-4xl">👋</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-display font-bold text-warm-900 mb-4">
+        嗨，我是 <span class="text-accent-peach">Vega</span>
+      </h1>
+      <p class="text-warm-600 text-lg max-w-md mx-auto leading-relaxed">
+        一個熱愛學習的數位工作者，喜歡用文字記錄每一次的成長。
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-5 py-12 animate-fade-in">
+    <!-- About Content -->
+    <div class="bg-white border border-cream-300 rounded-notebook p-6 md:p-8 mb-10 shadow-card">
+      <h2 class="font-display font-bold text-warm-900 text-xl mb-4">📖 關於這個網站</h2>
+      <p class="text-warm-700 leading-relaxed mb-4">
+        <strong>Vega Note</strong> 是我的個人學習筆記。我相信最好的學習方式就是「學了就寫下來」— 不只幫助自己記憶，也能分享給同樣在路上的人。
+      </p>
+      <p class="text-warm-600 leading-relaxed">
+        這裡記錄了我在 AI 應用、數位行銷、網站開發和生活成長各方面的探索心得。有成功的經驗，也有踩過的坑，希望能對你有一點點幫助。
+      </p>
+    </div>
+
+    <!-- What I'm Learning -->
+    <h2 class="font-display font-bold text-warm-900 text-xl mb-6">🎯 我在學什麼？</h2>
+    <div class="grid md:grid-cols-2 gap-4 mb-12">
+      {siteConfig.categories.map(cat => (
+        <a
+          href={`/blog/?cat=${cat.slug}`}
+          class="group bg-white border border-cream-300 rounded-notebook p-5 hover:shadow-card-hover hover:border-cream-400 hover:-translate-y-0.5 transition-all duration-300"
+        >
+          <div class="flex items-start gap-4">
+            <span class="text-3xl flex-shrink-0 mt-0.5">{cat.emoji}</span>
+            <div>
+              <h3 class="font-display font-semibold text-warm-900 mb-1 group-hover:text-accent-peach transition-colors">{cat.label}</h3>
+              <p class="text-sm text-warm-500 leading-relaxed">
+                {cat.slug === 'ai' && 'Claude API、Prompt Engineering、AI 自動化工具、LLM 應用開發'}
+                {cat.slug === 'marketing' && 'SEO 優化、社群經營、Google AdSense、內容行銷策略'}
+                {cat.slug === 'dev' && 'Astro、Next.js、React、GitHub Actions、Vercel 部署'}
+                {cat.slug === 'life' && '學習方法論、工作效率、時間管理、個人成長'}
+              </p>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Journey / Skills -->
+    <div class="bg-cream-100/60 border border-cream-300 rounded-notebook p-6 md:p-8 mb-12">
+      <h2 class="font-display font-bold text-warm-900 text-xl mb-4">🚀 我的技術棧</h2>
+      <div class="flex flex-wrap gap-2">
+        {['Astro', 'React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js', 'Supabase', 'Vercel', 'GitHub Actions', 'Claude API', 'OpenAI API', 'SEO', 'Google Analytics', 'AdSense', 'Markdown', 'Figma'].map(skill => (
+          <span class="px-3 py-1.5 bg-white border border-cream-300 rounded-full text-sm text-warm-700 font-medium">
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Why Write Notes -->
+    <div class="bg-white border border-cream-300 rounded-notebook p-6 md:p-8 mb-12 shadow-card">
+      <h2 class="font-display font-bold text-warm-900 text-xl mb-4">✍️ 為什麼寫筆記？</h2>
+      <div class="space-y-4">
+        <div class="flex gap-3">
+          <span class="text-accent-peach font-bold text-lg mt-0.5">01</span>
+          <div>
+            <h3 class="font-semibold text-warm-800 mb-1">加深記憶</h3>
+            <p class="text-sm text-warm-600 leading-relaxed">用自己的話重新整理一遍，記憶效果比單純閱讀好 3 倍以上。</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-accent-peach font-bold text-lg mt-0.5">02</span>
+          <div>
+            <h3 class="font-semibold text-warm-800 mb-1">釐清思路</h3>
+            <p class="text-sm text-warm-600 leading-relaxed">寫不出來的時候，代表你其實還沒真正理解。寫作是最好的思考工具。</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-accent-peach font-bold text-lg mt-0.5">03</span>
+          <div>
+            <h3 class="font-semibold text-warm-800 mb-1">幫助他人</h3>
+            <p class="text-sm text-warm-600 leading-relaxed">你踩過的坑，可能正是別人正在面對的問題。分享就是最好的回饋。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="bg-gradient-to-br from-cream-200 to-cream-300 border border-cream-400 rounded-notebook p-6 md:p-8 text-center">
+      <h2 class="font-display font-bold text-warm-800 text-xl mb-3">📬 聯繫我</h2>
+      <p class="text-warm-600 text-sm mb-5 leading-relaxed">
+        有問題、想法或合作機會？歡迎寄信給我！
+      </p>
+      <a
+        href="mailto:veganote69@gmail.com"
+        class="inline-flex items-center gap-2 bg-accent-peach hover:bg-[#d4956a] text-white px-6 py-3 rounded-full font-medium transition-colors text-sm"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        veganote69@gmail.com
+      </a>
+    </div>
+  </section>
+</BaseLayout>
