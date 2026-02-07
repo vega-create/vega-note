@@ -2,7 +2,7 @@
 title: "Claude API 入門：如何用 AI 自動產生高品質文章？"
 description: "從零開始學會使用 Claude API 來自動產生 SEO 優化的文章，包含 Prompt 設計、API 串接、品質控制的完整教學。"
 publishDate: 2026-02-05
-category: ai
+category: AI
 tags: [Claude API, AI 寫作, Prompt Engineering, 自動化]
 image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 imageAlt: "AI 自動化寫作"
