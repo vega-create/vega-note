@@ -2,7 +2,7 @@
 title: "SEO 新手必看：如何讓 Google 找到你的網站？"
 description: "從 Google Search Console 設定到 Sitemap 提交，新手也能輕鬆上手的 SEO 基礎教學。"
 publishDate: 2026-02-03
-category: marketing
+category: 行銷
 tags: [SEO, Google Search Console, Sitemap, 網站優化]
 image: "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 imageAlt: "SEO 優化"
