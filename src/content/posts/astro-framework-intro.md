@@ -2,7 +2,7 @@
 title: "Astro 框架入門：為什麼它是做內容網站的最佳選擇？"
 description: "比較 Astro 和 WordPress、Next.js 的差異，教你用 Astro 快速建立高效能的靜態網站。"
 publishDate: 2026-02-01
-category: dev
+category: 開發
 tags: [Astro, 靜態網站, Vercel, 前端開發]
 image: "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
 imageAlt: "Astro 前端開發"
