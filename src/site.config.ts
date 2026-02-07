@@ -35,6 +35,6 @@ export const siteConfig = {
 
   // Social links
   social: {
-    github: 'https://github.com/vega-create',
+    facebook: '',
   },
 };
