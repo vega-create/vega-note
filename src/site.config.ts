@@ -22,7 +22,7 @@ export const siteConfig = {
 ],
   // Analytics (fill in when ready)
   analytics: {
-    ga4: '',
+    ga4: 'G-PL01WPZWMC',
     fbPixel: '',
   },
 
