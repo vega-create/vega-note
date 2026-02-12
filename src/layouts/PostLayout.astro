@@ -5,6 +5,7 @@ import ArticleSchema from '../components/ArticleSchema.astro';
 import BreadcrumbSchema from '../components/BreadcrumbSchema.astro';
 import FAQSchema from '../components/FAQSchema.astro';
 import { siteConfig } from '../site.config';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
@@ -19,6 +20,20 @@ interface Props {
 }
 
 const { title, description, publishDate, category, tags = [], image, imageAlt, faq, headings } = Astro.props;
+
+// Related posts
+const allPosts = await getCollection('posts');
+const relatedItems = allPosts
+  .filter(p => p.data.category === category && !Astro.url.pathname.includes(p.slug))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3)
+  .map(p => ({
+    url: `/posts/${p.slug}`,
+    title: p.data.title,
+    image: p.data.image || '',
+    imageAlt: p.data.imageAlt || p.data.title,
+    description: p.data.description || '',
+  }));
 const catInfo = siteConfig.categories.find(c => c.slug === category);
 const catLabel = catInfo ? `${catInfo.emoji} ${catInfo.label}` : category;
 const dateStr = publishDate.toLocaleDateString('zh-TW', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -57,6 +72,7 @@ const breadcrumbs = [
           {catLabel}
         </span>
         <time class="text-sm text-warm-400">{dateStr}</time>
+        <span class="text-sm text-warm-400">· <a href="/about/" class="hover:text-accent-peach transition-colors">{siteConfig.author}</a></span>
       </div>
       <h1 class="text-2xl md:text-3xl font-display font-bold text-warm-900 leading-tight mb-4">
         {title}
@@ -110,5 +126,35 @@ const breadcrumbs = [
         </div>
       </section>
     )}
+    <!-- 相關文章 -->
+    {relatedItems.length > 0 && (
+      <section class="mt-12 pt-8 border-t border-cream-300">
+        <h2 class="font-display font-bold text-warm-900 text-xl mb-6">📚 延伸閱讀</h2>
+        <div class="grid md:grid-cols-3 gap-4">
+          {relatedItems.map((item) => (
+            <a href={item.url} class="group bg-white border border-cream-300 rounded-notebook overflow-hidden hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
+              {item.image && (
+                <img src={item.image} alt={item.imageAlt} class="w-full h-36 object-cover" loading="lazy" />
+              )}
+              <div class="p-4">
+                <h3 class="font-semibold text-warm-800 group-hover:text-accent-peach transition-colors text-sm line-clamp-2">{item.title}</h3>
+                <p class="text-xs text-warm-500 mt-2 line-clamp-2">{item.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 作者框 -->
+    <div class="mt-12 pt-8 border-t border-cream-300">
+      <div class="flex gap-4 items-center bg-cream-100/60 border border-cream-300 rounded-notebook p-5">
+        <div class="text-4xl flex-shrink-0">✍️</div>
+        <div>
+          <a href="/about/" class="font-display font-bold text-warm-900 hover:text-accent-peach transition-colors">{siteConfig.author}</a>
+          <p class="text-sm text-warm-500 mt-1">熱愛學習的數位工作者，用文字記錄 AI、行銷、開發的每一步成長。</p>
+        </div>
+      </div>
+    </div>
   </article>
 </BaseLayout>
