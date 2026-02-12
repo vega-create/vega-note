@@ -16,7 +16,7 @@ const schema = {
   datePublished: publishDate.toISOString(),
   image: image || '',
   url: new URL(url, siteConfig.url).toString(),
-  author: { "@type": "Person", name: siteConfig.author },
+  author: { "@type": "Person", name: siteConfig.author, url: new URL("/about/", siteConfig.url).toString() },
   publisher: { "@type": "Organization", name: siteConfig.name },
 };
 ---
