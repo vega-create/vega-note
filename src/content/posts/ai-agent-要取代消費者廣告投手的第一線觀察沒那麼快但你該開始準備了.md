@@ -1,7 +1,7 @@
 ---
 title: "AI Agent 要取代消費者？廣告投手的第一線觀察：沒那麼快，但你該開始準備了"
 description: "AI Agent 真的會取代消費者決策嗎？從廣告投手的實戰角度分析 Agent Economy 的盲點，以及品牌現在該做的三件事。"
-publishDate: 2026-02-22
+publishDate: 2026-02-21
 category: "行銷"
 tags: ["AI Agent", "數位廣告", "品牌行銷", "Agent Economy", "AI行銷趨勢"]
 image: "https://lexcvcinmphkmavgswgn.supabase.co/storage/v1/object/public/veganote-images/3d-rendering-biorobots-concept.jpg"
