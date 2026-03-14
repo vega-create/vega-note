@@ -98,11 +98,13 @@ jobs:
 
 同時把 cron schedule 那兩行全部註解掉——現在改成 push 自動觸發，有發文才 build，沒有 push 就不跑。
 
+
 ### 第三步：設定 GitHub Secrets
 
 每個 repo 的 Settings → Secrets → Actions 加入：
 - `CF_API_TOKEN`：Cloudflare 的 API Token（Edit Cloudflare Workers 模板）
 - `CF_ACCOUNT_ID`：Cloudflare Dashboard 右側邊欄的 Account ID
+
 
 ### 第四步：綁定 Custom Domain
 
