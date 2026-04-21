@@ -1,3 +1,7 @@
+# Content Signals (contentsignals.org, RFC draft-romm-aipref-contentsignals)
+# Declares preferences for AI training, search indexing, and AI grounding (RAG).
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
 # Allow well-behaved crawlers
 User-agent: *
 Allow: /
