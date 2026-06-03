@@ -1,12 +1,50 @@
 ---
 import { siteConfig } from '../site.config';
+
 const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
-  inLanguage: siteConfig.lang,
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}#website`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      inLanguage: siteConfig.lang,
+      publisher: { '@id': `${siteConfig.url}#organization` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}#organization`,
+      name: siteConfig.name,
+      legalName: 'Mommy Wisdom International LTD. 智慧媽咪國際有限公司',
+      url: siteConfig.url,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteConfig.url}/favicon.svg`,
+      },
+      founder: {
+        '@type': 'Person',
+        name: 'Vega Lin (薇佳)',
+        jobTitle: 'Founder',
+        url: 'https://chparenting.com/about/',
+        description:
+          '東海大學數位創新碩士在讀，8+ 年數位行銷經驗（Google Ads/Facebook Ads/SEO），前英文老師。',
+        alumniOf: { '@type': 'EducationalOrganization', name: 'Tunghai University' },
+      },
+      sameAs: [
+        'https://chparenting.com',
+        'https://baby.chparenting.com',
+        'https://pregnancy.chparenting.com',
+        'https://learn.chparenting.com',
+        'https://english.chparenting.com',
+        'https://kids.chparenting.com',
+        'https://mommystartup.com',
+        'https://mommywisdom.tw',
+        'https://aimommywisdom.com',
+      ],
+    },
+  ],
 };
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
