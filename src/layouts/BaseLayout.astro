@@ -21,6 +21,21 @@ const { title, description, image, type, publishDate } = Astro.props;
 <!DOCTYPE html>
 <html lang={siteConfig.lang}>
 <head>
+  {/*
+    EzoicAds JavaScript Integration — must sit at the very top of <head>.
+    Order matters: privacy CMP scripts (data-cfasync="false") MUST load
+    BEFORE the header script so Cloudflare/Rocket-Loader doesn't reorder
+    them. Docs: https://docs.ezoic.com/docs/ezoicads/integration/
+  */}
+  <script is:inline data-cfasync="false" src="https://cmp.gatekeeperconsent.com/min.js"></script>
+  <script is:inline data-cfasync="false" src="https://the.gatekeeperconsent.com/cmp.min.js"></script>
+  <script is:inline async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+  <script is:inline>
+    window.ezstandalone = window.ezstandalone || {};
+    window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+  </script>
+  <script is:inline src="//ezoicanalytics.com/analytics.js"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="wh28IzOiDMWYFhpVk1e1jcfgzwAMGqVdDsvnt-JtqAI" />
