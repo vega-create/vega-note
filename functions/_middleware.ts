@@ -24,6 +24,13 @@ type PagesCtx = {
 export const onRequest = async (context: PagesCtx): Promise<Response> => {
   const { request, next, env } = context;
   const url = new URL(request.url);
+
+  // Cloudflare 預設的 *.pages.dev 網址還是會被人點到（AdSense 報表上看得到），
+  // 一律 301 到正式網址。只攔專案本身的網址，分支預覽（xxxx.vega-note.pages.dev）不攔，還能測試。
+  if (url.hostname === 'vega-note.pages.dev') {
+    url.hostname = 'vega-note.com';
+    return Response.redirect(url.toString(), 301);
+  }
   const accept = request.headers.get('accept') || '';
 
   if (accept.includes('text/markdown')) {
